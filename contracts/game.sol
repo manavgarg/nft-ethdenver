@@ -1,13 +1,13 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.6.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/drafts/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract GameItem is ERC721Full {
+contract GameItem is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721Full("TradingCardGame", "TCG") public {
+    constructor() ERC721("TradingCardGame", "TCG") public {
     }
 
     function awardItem(address player, string memory tokenURI) public returns (uint256) {
